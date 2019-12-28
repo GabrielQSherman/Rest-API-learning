@@ -137,6 +137,13 @@ app.get('/name', (req, res) => {
 })
 
 /** 12) Get data form POST  */
+//sudo code
+// POST /path/subpath HTTP/1.0
+// From: john@example.com
+// User-Agent: someBrowser/1.0
+// Content-Type: application/x-www-form-urlencoded
+// Content-Length: 20
+// name=John+Doe&age=25
 
 
 //more html serves
