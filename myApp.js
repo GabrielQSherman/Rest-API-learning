@@ -105,11 +105,17 @@ app.get('/r-p-s', (req,res, next) => {
 
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
-//repeat a word given in the request by using the given object 'request.parameters'
 
 app.get('/:word/echo', (req, res) => {
   const { word } = req.params;
-  res.json({echo: word});
+  
+  console.log(req.params); //req.params is a object of key value pairs with values all being string from the user's path input
+  
+  // res.json({echo: word}); //this will just give the user input in json format
+  
+  let echo = (word + " ").repeat(7);
+  
+  res.send(echo);
 })
 
   
@@ -118,12 +124,15 @@ app.get('/:word/echo', (req, res) => {
 
 app.get('/name', (req, res) => {
   
-  console.log("first name: " + req.query.firstname + " - last name: " + req.query.lastname);
+  console.log("first name: " + req.query.first + " - last name: " + req.query.last);
   console.log('\n\n');
   
-  res.json({name: req.query.firstname + " " + req.query.lastname})
+  let first = req.query.first,
+      last = req.query.last;
   
-
+  // res.json({name: req.query.first + " " + req.query.last}); //returns and object with user input from url query
+  
+  res.send("Hello " + first +" "+ last + ". I am pleased to serve you!");
   
 })
 
