@@ -3,11 +3,11 @@ var express = require('express');
 var app = express();
 
 // --> 7)  Mount the Logger middleware here
-//this logger will be placed before all other function calls because it needs to ececute before any other responses can be made
+
 app.use('/', (req, res, next) => {
   
     let post = req.method + " " + req.path + " - " + req.ip;
-    console.log(post); //logs to the console some basic info about each request
+    console.log(post);
   next()
 })
 
@@ -17,7 +17,7 @@ app.use('/', (req, res, next) => {
 
 /** 1) Meet the node console. */
 
-console.log("Hello World");
+// console.log("Hello World");
 
 
 /** 2) A first working Express Server */
@@ -31,7 +31,7 @@ console.log("Hello World");
 
 let absolutePath = __dirname + '/views/index.html';
 
-console.log(absolutePath);
+// console.log(absolutePath);
 
 app.get('/', (req, res) => {
   res.sendFile(absolutePath);
@@ -69,54 +69,79 @@ app.get('/json', (req, res) => {
   } 
   
   res.json(obj);
+  
 })
  
  
 /** 7) Root-level Middleware - A logger */
 //  place it before all the routes !
 
-//DONE ABOVE line 7
-
 
 /** 8) Chaining middleware. A Time server */
 
 app.get('/now', (req, res, next) => {
-  //the req obj can have keys made and set with values so they can be called upon when need in chained-callback-function
-    req.time = new Date().toString(); //the current time is converted to a string and then set to the key 'time' in the request obj
+  
+    req.time = new Date().toString();
+  
+
     
-    next() //next function in sequence is called
+    next()
 }, (req, res) => {
-    //the dom with have a response sent, it will display the current time as a json object converted to text
+//     console.log(req.time);
+//     console.log("final");
+  
   res.json({time: req.time});
+    
 
 })
 
 
 /** 9)  Get input from client - Route parameters */
 
-app.get("/:word/echo", (req, res) => {
-    const { word } = req.params;
-    res.json({
-      echo: word
-    });
-  });
+app.get('/r-p-s', (req,res, next) => {
+  
+})
 
 
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
+//repeat a word given in the request by using the given object 'request.parameters'
+
+app.get('/:word/echo', (req, res) => {
+  const { word } = req.params;
+  res.json({echo: word});
+})
 
   
 /** 11) Get ready for POST Requests - the `body-parser` */
 // place it before all the routes !
 
+app.get('/name', (req, res) => {
+  
+  console.log("first name: " + req.query.firstname + " - last name: " + req.query.lastname);
+  console.log('\n\n');
+  
+  res.json({name: req.query.firstname + " " + req.query.lastname})
+  
+
+  
+})
 
 /** 12) Get data form POST  */
 
 
+//more html serves
+let filepath = __dirname + '/nasa.html';
 
+// console.log(filepath);
+
+app.get('/nasa', (req, res) => {
+  res.sendFile(filepath);
+})
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
 /** app.listen(process.env.PORT || 3000 ); */
+
 
 //---------- DO NOT EDIT BELOW THIS LINE --------------------
 
