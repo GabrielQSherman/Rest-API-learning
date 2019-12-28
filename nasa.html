@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NASA Image of The Day</title>
+    <link rel="stylesheet" type="text/css" href="/nasa.css">
+</head>
+<body>
+    
+    <!-- title and search for date -->
+    <div class="title">
+        <h1 style="flex: 2;">NASA Astro-Photography Photo of the Day</h1>   
+        <input type="text" id="dateinput" placeholder="Enter a Date (YYYY-MM-DD)" style="flex: 1; font-size: 27px;">
+        <button id="search" style="flex: .9; font-size: 32px;">Search Date</button>
+
+    </div>
+   
+    <!-- image from nasa api -->
+    <div class="images">
+
+        <div><img id="image"></div>
+
+    </div>
+    <!-- This is the info section -->
+    <div class="info">
+
+        <h1 id="title" style="flex: 1; text-align: center; margin: auto;"></h1>
+        <h2 id="date" style="flex: 1;  text-align: center; margin: auto;">Date: </h2>
+
+        <p id="photoinfo" style="flex: 4;">About this image: </p>
+
+    </div>
+    <!-- importing javascript code -->
+    <script src="/nasa.js"></script>
+    
+</body>
+</html>
