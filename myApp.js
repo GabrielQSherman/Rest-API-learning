@@ -12,9 +12,10 @@ app.use('/', (req, res, next) => {
 })
 
 
-// --> 11)  Mount the body-parser middleware here
+// --> 11)  Mount the body-parser middleware  here
 
 var bodyParser = require('body-parser');
+
 
 /** 1) Meet the node console. */
 
@@ -131,25 +132,42 @@ app.get('/name', (req, res) => {
   let first = req.query.first,
       last = req.query.last;
   
-  // res.json({name: req.query.first + " " + req.query.last}); //returns and object with user input from url query
+  // res.json({name: req.query.first + " " + req.query.last})
   
-  res.send("Hello " + first +" "+ last + ". I am pleased to serve you!");
+  res.send("Hello " + first +" "+ last + ". I am pleased to serve you!")
   
 })
 
-//mount body-parser
 app.use(bodyParser.urlencoded({extended: false}));
+
+
 
 /** 12) Get data form POST  */
 
-//more html serves
-let filepath = __dirname + '/nasa.html';
+//sudo code
+// POST /path/subpath HTTP/1.0
+// From: john@example.com
+// User-Agent: someBrowser/1.0
+// Content-Type: application/x-www-form-urlencoded
+// Content-Length: 20
+// name=John+Doe&age=25
 
-// console.log(filepath);
+app.post('/')
+
+
+//more html serves
+let htmlFP = __dirname + '/views/nasa.html';
+
+// console.log(htmlFP);
 
 app.get('/nasa', (req, res) => {
-  res.sendFile(filepath);
+  res.sendFile(htmlFP);
+  
 })
+
+
+
+
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
 /** app.listen(process.env.PORT || 3000 ); */
