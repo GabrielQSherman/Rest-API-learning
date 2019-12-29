@@ -12,8 +12,9 @@ app.use('/', (req, res, next) => {
 })
 
 
-// --> 11)  Mount the body-parser middleware  here
+// --> 11)  Mount the body-parser middleware here
 
+var bodyParser = require('body-parser');
 
 /** 1) Meet the node console. */
 
@@ -136,15 +137,10 @@ app.get('/name', (req, res) => {
   
 })
 
-/** 12) Get data form POST  */
-//sudo code
-// POST /path/subpath HTTP/1.0
-// From: john@example.com
-// User-Agent: someBrowser/1.0
-// Content-Type: application/x-www-form-urlencoded
-// Content-Length: 20
-// name=John+Doe&age=25
+//mount body-parser
+app.use(bodyParser.urlencoded({extended: false}));
 
+/** 12) Get data form POST  */
 
 //more html serves
 let filepath = __dirname + '/nasa.html';
