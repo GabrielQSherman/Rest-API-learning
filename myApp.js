@@ -124,21 +124,21 @@ app.get('/:word/echo', (req, res) => {
 /** 11) Get ready for POST Requests - the `body-parser` */
 // place it before all the routes !
 
-app.get('/name', (req, res) => {
-  
-  console.log("first name: " + req.query.first + " - last name: " + req.query.last);
-  console.log('\n\n');
-  
-  let first = req.query.first,
-      last = req.query.last;
-  
-  // res.json({name: req.query.first + " " + req.query.last})
-  
-  res.send("Hello " + first +" "+ last + ". I am pleased to serve you!")
-  
-})
-
 app.use(bodyParser.urlencoded({extended: false}));
+
+// app.get('/name', (req, res) => {
+  
+//   console.log("first name: " + req.query.first + " - last name: " + req.query.last);
+//   console.log('\n\n');
+  
+//   let first = req.query.first,
+//       last = req.query.last;
+  
+//   // res.json({name: req.query.first + " " + req.query.last})
+  
+//   res.send("Hello " + first +" "+ last + ". I am pleased to serve you!")
+  
+// })
 
 
 
@@ -152,7 +152,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Content-Length: 20
 // name=John+Doe&age=25
 
-app.post('/')
+app.post('/name', (rep, res) => {
+  let fullname = rep.body.first + " " + rep.body.last; 
+  console.log('\n______________\n' + fullname + '\n_____________\n');
+  
+  res.json({name: fullname});
+})
+
+
 
 
 //more html serves
