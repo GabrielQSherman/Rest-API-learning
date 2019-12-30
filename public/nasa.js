@@ -37,8 +37,6 @@ function onload_function() {
         if (nasaData.code == '400') {
             document.getElementById('dateinput').value = '';
             document.getElementById('dateinput').placeholder = 'Please enter date in the correct format.';
-        } else if (nasaData.hdurl) {
-
         } else {
 
             document.getElementById('image').src = nasaData.hdurl;

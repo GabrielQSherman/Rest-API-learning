@@ -126,25 +126,25 @@ app.get('/:word/echo', (req, res) => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-// app.get('/name', (req, res) => {
+app.get('/name', (req, res) => {
   
-//   console.log("first name: " + req.query.first + " - last name: " + req.query.last);
-//   console.log('\n\n');
+  console.log("first name: " + req.query.first + " - last name: " + req.query.last);
+  // console.log('\n\n');
   
-//   let first = req.query.first,
-//       last = req.query.last;
+  let first = req.body.first,
+      last = req.body.last;
   
-//   // res.json({name: req.query.first + " " + req.query.last})
+  // res.json({name: req.query.first + " " + req.query.last})
   
-//   res.send("Hello " + first +" "+ last + ". I am pleased to serve you!")
+  res.send("Hello " + first +" "+ last + ". I am pleased to serve you!")
   
-// })
+})
 
 
 
 /** 12) Get data form POST  */
 
-//sudo code
+//example body
 // POST /path/subpath HTTP/1.0
 // From: john@example.com
 // User-Agent: someBrowser/1.0
@@ -157,7 +157,13 @@ app.post('/name', (rep, res) => {
   console.log('\n______________\n' + fullname + '\n_____________\n');
   
   res.json({name: fullname});
-})
+  
+});
+
+// app.get('/name', (rep, res) => {
+//   let name = rep.body.first;
+//   res.send(name)
+// })
 
 
 
