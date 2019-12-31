@@ -1,0 +1,76 @@
+<!-- 
+NEXT STEPS
+add types for each search
+add better implentation of images in list. no more offsetting! -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon Finder</title>
+
+    <style>
+        .titleFlexBox {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 10%;
+            background-color: #ffa1c0;
+            text-justify: auto;
+        }
+
+        .pokeInput {
+                display: flex;
+                background-color: rgb(146, 233, 255);
+                justify-content: center;
+                flex-wrap: nowrap;
+        }
+
+        .stats>div {
+            display: flex;
+            width: 100%;
+            justify-content: middle;
+            flex-wrap: nowrap;
+        }
+       
+    </style>
+
+
+</head>
+
+<body style="background-color: #fffeb4;">
+    <h1 class="titleFlexBox">Pokemon Finder</h1> 
+
+    <div class="pokeInput">
+
+        <p style="font-weight: bold;">Enter a Pokemon name or number to get stats about them!</p>
+       
+        <input class="inputbox" id="nameinput" type="text" placeholder="Pokemon Name ie 'Mewtwo'" style="width: 220px; font-size: 17px;">        
+        <button id="searchbtn">Press to search</button>
+        <button id="clearbtn">Press to clear list</button>
+
+    </div>
+
+    <div class="stats">
+        
+    <h2>Stats</h2>
+    <div id = stats>
+
+    <p id="name" style="font-weight: bold;flex: 2">Name: </p>
+    <p id="idNum" style="font-weight: bold;flex: 1">Id #: </p>
+    <p id="height" style="font-weight: bold;flex: 1">Height: </p>
+    <p id="weight" style="font-weight: bold;flex: 1">Weight: </p>
+    <p id="types" style="font-weight: bold;flex: 1.5">Types: </p>
+    <p id="image" style="font-weight: bold;flex: .5">Image: </p>
+    </div>
+
+    </div> <!--end of stats class div -->
+
+    <script src="pokeapi.js"></script>
+   
+
+</body>
+</html>
