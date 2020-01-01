@@ -6,28 +6,22 @@ document.getElementById('nxtday').addEventListener('click', nextday_function);
 
     let width = this.innerWidth, //this refers to window
         height = this.innerHeight,
-    //this will be for getting the current date
-    computerDate = new Date(),
-    dd = String(computerDate.getDate()).padStart(2, '0'),
-    mm = String(computerDate.getMonth() + 1).padStart(2, '0'), //January is 0!
-    yyyy = computerDate.getFullYear(),
-    today = yyyy + '-' + mm + '-' + dd;
+    //this will be for getting the current date onload
+        computerDate = new Date(),
+        dd = String(computerDate.getDate()).padStart(2, '0'),
+        mm = String(computerDate.getMonth() + 1).padStart(2, '0'), //January is 0!
+        yyyy = computerDate.getFullYear(),
+        today = yyyy + '-' + mm + '-' + dd;
+
+    console.log(today);
 
 call_api_function()
 function call_api_function() {
 
     let xhr = new XMLHttpRequest() , endpoint = `https://api.nasa.gov/planetary/apod`, myKey = `?api_key=Fgrr1lJp3BQ5AUgM9k0EuSkLS0R9RhUKbSavz4dP`;
 
-    if (document.getElementById('dateinput').value == '') {
-
-        endpoint += myKey + "&date=" + today + '&hd=true';
-        
-    } else {
-
-        endpoint += myKey + '&date=' + document.getElementById('dateinput').value + '&hd=true';
-
-    }
-
+    endpoint += myKey + "&date=" + today + '&hd=true';
+    
     console.log(endpoint);
 
     xhr.open('GET', endpoint ,true);
@@ -65,11 +59,13 @@ function search_function() {
 
 function previousday_function() {
 
-    if (document.getElementById('dateinput').value == "") {
-        today = yyyy + '-' + mm + '-' + (parseInt(dd) - 1);
-    } else {
-        today = document.getElementById('dateinput').value;
-    }
+    // if (document.getElementById('dateinput').value == "") {
+    //     today = yyyy + '-' + mm + '-' + (parseInt(dd) - 1);
+    // } else {
+    //     today = document.getElementById('dateinput').value;
+    // }
+
+    // if
 
     call_api_function()
 }
