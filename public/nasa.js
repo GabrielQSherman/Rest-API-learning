@@ -66,17 +66,21 @@ function search_function() {
 function previousday_function() {
 
     if (document.getElementById('dateinput').value == "") {
-        today = yyyy + '-' + mm + '-' + (dd + 1);
+        today = yyyy + '-' + mm + '-' + (parseInt(dd) - 1);
     } else {
         today = document.getElementById('dateinput').value;
     }
 
-    
     call_api_function()
 }
 
 function nextday_function() {
-    today = document.getElementById('dateinput').value;
+    if (document.getElementById('dateinput').value == "") {
+        today = yyyy + '-' + mm + '-' + (parseInt(dd) + 1);
+    } else {
+        today = document.getElementById('dateinput').value;
+    }
+
     call_api_function()
 }
 
