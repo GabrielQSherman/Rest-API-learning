@@ -4,6 +4,7 @@ document.getElementById('search').addEventListener('click', search_function);
         height = this.innerHeight;
 
 function call_api_function() {
+  
 
     let xhr = new XMLHttpRequest() , endpoint = `https://api.nasa.gov/planetary/apod`, myKey = `?api_key=Fgrr1lJp3BQ5AUgM9k0EuSkLS0R9RhUKbSavz4dP`;
 
@@ -15,14 +16,19 @@ function call_api_function() {
 
     xhr.onload = () => {
 
-        // console.log(JSON.parse(xhr.responseText));
+        console.log(JSON.parse(xhr.responseText));
         
         const nasaData = JSON.parse(xhr.responseText);
 
-        if (nasaData.code == '400') {
+        if (nasaData.msg != undefined && nasaData.msg.includes('format')) {
             document.getElementById('dateinput').value = '';
-            document.getElementById('dateinput').placeholder = 'Please enter date in the correct format.';
-        }  else {
+            document.getElementById('dateinput').placeholder = 'Incorect Format (YYYY-MM-DD)';
+        } else if (nasaData.msg != undefined && nasaData.msg.includes('Date')) {
+          
+          document.getElementById('dateinput').value = '';
+          document.getElementById('dateinput').placeholder = 'Valid Dates:' + nasaData.msg.substring(20, 33) + " --- " + nasaData.msg.substring(38, nasaData.msg.length-1);
+                   
+        } else {
 
             document.getElementById('image').src = nasaData.hdurl;
 
@@ -31,6 +37,8 @@ function call_api_function() {
             document.getElementById('date').innerHTML = 'Date: ' + nasaData.date;
 
             document.getElementById('photoinfo').innerHTML = 'About this image: ' + '<hr>' + nasaData.explanation;
+            
+            document.getElementById('dateinput').placeholder = 'Format (YYYY-MM-DD)';
 
         }
 
