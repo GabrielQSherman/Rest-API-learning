@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NASA Image of The Day</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="nasa.css">
 </head>
 <body>
     
     <!-- title and search for date -->
-    <div class="title">
-        <h1 style="flex: 2;">NASA Astro-Photography Photo of the Day</h1>   
-        <input type="text" id="dateinput" placeholder="Enter a Date (YYYY-MM-DD)" style="flex: 1; font-size: 27px;">
-        <button id="search" style="flex: .9; font-size: 32px;">Search Date</button>
-        <button id="prevday" style="flex: .4; font-size: 22px;">Go To Previous Day</button>
-        <button id="nxtday" style="flex: .4; font-size: 22px;">Go To Next Day</button>
-        <button id='prvmonth' style="flex: .4; font-size: 22px;">Previous Month</button>
-        <button id='nxtmonth' style="flex: .4; font-size: 22px;">Next Month</button>
-        <button id='prvyear' style="flex: .4; font-size: 22px;">Previous Year</button>
-        <button id='nxtyear' style="flex: .4; font-size: 22px;">Next Year</button>
-        <button id='curdate' style="flex: .4; font-size: 22px;">Current Date</button>
-
-    </div>
+  <div class="title">
+      <h1 style="flex: 2;">NASA Astro-Photography Photo of the Day</h1>   
+      <input type="text" id="dateinput" placeholder="Format (YYYY-MM-DD)" style="flex: 1; font-size: 27px;">
+      <button id="search" style="flex: .9; font-size: 32px;">Search Date</button>
+  </div>
+  
+  <div class ="datenav">
+      <button id="prevday" style="flex: .4; font-size: 19px;">Previous Day</button>
+      <button id="nxtday" style="flex: .4; font-size: 19px;">Next Day</button>
+      <button id="prvmonth" style="flex: .4; font-size: 19px;">Previous Month</button>
+      <button id="nxtmonth" style="flex: .4; font-size: 19px;">Next Month</button>
+      <button id="prvyear" style="flex: .4; font-size: 19px;">Previous Year</button>
+      <button id="nxtyear" style="flex: .4; font-size: 19px;">Next Year</button>
+      <button id="curdate" style="flex: .4; font-size: 19px;">Current Date</button>
+  </div>
    
     <!-- image from nasa api -->
     <div class="images">
