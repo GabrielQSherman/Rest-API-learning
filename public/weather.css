@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(30, 52, 65);
+  }
+
+.display_data {
+  display: flex;
+      margin-top: 5%;
+    text-justify: auto;
+    justify-content: center;
+    margin: 1%;
+    width: 98%;
+    height: 100%;
+    background-color: #fffeb4;
+}
