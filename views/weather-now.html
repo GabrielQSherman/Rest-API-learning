@@ -9,17 +9,23 @@
 </head>
 
 <body>
-    <h1>Weather In My City</h1>
+    <h1>Current Weather Search</h1>
     <!-- <br> -->
-    <h4>Enter Zip Code below</h4>
+    <h4>Enter Zip Code or City Name below</h4>
     <input type="text" name="cityzip" id="cityzip" placeholder = "Sample: 91210 OR beverlyhills">
     <hr>
     
-    <p id="cityname">City Name: </p>
-    <p id="percip">Percipitation: </p>
-    <p id="humid">Humidity: </p>
-    <p id="currTemp">The current tempurature is: </p>
-    <p id="cord">Cordinates: </p>
+  <div class = "display_data">
+    
+    <p id="cityname">City Name: <br>-------</p>
+    <p id="percip">Percipitation: <br>-------</p>
+    <p id="humid">Humidity: <br>-------</p>
+    <p id="currTemp">Current Temp.: <br>-------</p>
+    <p id="feelsLike">Feels Like: <br>-------</p>
+    <p id="cord">Cordinates: <br>-------</p>
+    
+  </div>
+    
 
     <button id="button">CLICK for the current weather in the city of the zipcode you entered</button>
 
