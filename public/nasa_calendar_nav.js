@@ -36,6 +36,12 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     function set_date() { //this function will be called onload, aswell as every time the a button is pressed
 
         // console.log("test");
+        check_leap_year()
+
+        if (dd > daysInMonth[mm-1]) { //if the day is greater than the days in the current month. it is changed to that number
+
+            dd = daysInMonth[mm-1];
+        }
 
         today = yyyy + '-' + mm + '-' + dd;
 
@@ -45,6 +51,8 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     }
 
     function next_day() { //WORKING
+      
+      check_leap_year()
        
         if (parseInt(dd) + 1 > daysInMonth[mm-1] && mm < 12) { //if its going into the next month, but within the same year
 
@@ -74,6 +82,8 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     }
 
     function previous_day() { //WORKING
+      
+      check_leap_year()
 
         if (parseInt(dd) - 1 === 0 && mm > 1) { //if it is the first of the month, the next day back will be the last day of the previous month
 
@@ -156,5 +166,14 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
         mm = currentDate.month;
         dd = currentDate.day; 
         set_date() //sets the date with changed values
+    }
+
+
+    function check_leap_year() { //this function simply changes the days of the month of febuary depending if its a leap year
+        if (parseInt(yyyy) % 4 == 0) {
+            daysInMonth[1] = 29;
+        } else {
+            daysInMonth[1] = 28;
+        }
     }
 
