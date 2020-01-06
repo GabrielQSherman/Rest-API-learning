@@ -85,7 +85,7 @@ if (weatherData.wind.speed < 5) {
 
 document.getElementById('cityname').innerHTML = `City Name: ${weatherData.name}`;
 
-document.getElementById('percip').innerHTML = `Percipitation:`'Percipitation: ' + myWeatherData.cloudy;
+document.getElementById('percip').innerHTML = `Percipitation:${myWeatherData.cloudy}`;
 
 document.getElementById('humid').innerHTML = `Humidity:<br>${myWeatherData.humidity}%`;
 
