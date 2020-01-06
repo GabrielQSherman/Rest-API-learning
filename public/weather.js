@@ -78,19 +78,26 @@ myWeatherData.cloudy = weatherData.weather[0].main;
 myWeatherData.temp = Math.floor(weatherData.main.temp);
 myWeatherData.feelslike = Math.floor(weatherData.main.feels_like);
 myWeatherData.humidity = weatherData.main.humidity;
+myWeatherData.longitude = weatherData.coord.lon;
+myWeatherData.latitude = weatherData.coord.lat;
 
 if (weatherData.wind.speed < 5) {
     myWeatherData.windy == false;
 }
 
-document.getElementById('cityname').innerHTML = `City Name: ${weatherData.name}`;
+document.getElementById('cityname').innerHTML = `City Name:<br>${weatherData.name}`;
 
-document.getElementById('percip').innerHTML = `Percipitation:${myWeatherData.cloudy}`;
+document.getElementById('percip').innerHTML = `Percipitation:<br>${myWeatherData.cloudy}`;
 
 document.getElementById('humid').innerHTML = `Humidity:<br>${myWeatherData.humidity}%`;
 
-document.getElementById('currTemp').innerHTML = `Current Temp. ${myWeatherData.temp}°F`;
+document.getElementById('currTemp').innerHTML = `Current Temp.<br>${myWeatherData.temp}°F`;
+  
 document.getElementById('feelsLike').innerHTML = `Feels Like<br>${myWeatherData.feelslike}°F`;
+  
+document.getElementById('lon').innerHTML = `Longitude<br>${myWeatherData.longitude}`;
+
+document.getElementById('lat').innerHTML = `Latitude<br>${myWeatherData.latitude}`;
 
 }
 
