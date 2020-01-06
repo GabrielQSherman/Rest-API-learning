@@ -85,11 +85,12 @@ if (weatherData.wind.speed < 5) {
 
 document.getElementById('cityname').innerHTML = `City Name: ${weatherData.name}`;
 
-document.getElementById('percip').innerHTML = 'Percipitation: ' + myWeatherData.cloudy;
+document.getElementById('percip').innerHTML = `Percipitation:`'Percipitation: ' + myWeatherData.cloudy;
 
-document.getElementById('humid').innerHTML = 'Humidity: ' + myWeatherData.humidity + "%";
+document.getElementById('humid').innerHTML = `Humidity:<br>${myWeatherData.humidity}%`;
 
-document.getElementById('currTemp').innerHTML = 'The current tempurature is: ' + myWeatherData.temp + "°F" + "  And it feels like: " + myWeatherData.feelslike + "°F";
+document.getElementById('currTemp').innerHTML = `Current Temp. ${myWeatherData.temp}°F`;
+document.getElementById('feelsLike').innerHTML = `Feels Like<br>${myWeatherData.feelslike}°F`;
 
 }
 
