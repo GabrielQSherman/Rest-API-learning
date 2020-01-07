@@ -16,6 +16,8 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     //current date
     document.getElementById('curdate').addEventListener('click', current_date);
 
+    document.getElementById('feelin').addEventListener('click', feeling_lucky);
+
 //functions
     window.onload = () => {
 
@@ -38,7 +40,7 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
         // console.log("test");
         check_leap_year()
 
-        if (dd > daysInMonth[mm-1]) { //if the day is greater than the days in the current month. it is changed to that number
+        if (dd > daysInMonth[mm-1]) { //if the date is 02/29 on a non-leapyear then the day goes forward one
 
             dd = daysInMonth[mm-1];
         }
@@ -169,11 +171,28 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     }
 
 
-    function check_leap_year() { //this function simply changes the days of the month of febuary depending if its a leap year
+    function check_leap_year() {
         if (parseInt(yyyy) % 4 == 0) {
             daysInMonth[1] = 29;
         } else {
             daysInMonth[1] = 28;
         }
+    }
+
+    
+    function feeling_lucky() {
+      
+      console.log(1995 + Math.floor(Math.random() * (currentDate.year - 1995)));
+      
+        yyyy = 1995 + Math.floor(Math.random() * (currentDate.year - 1995));
+        
+        mm = Math.ceil(Math.random() * (12));
+        mm = mm < 9 ? "0" + (parseInt(mm)-1) : (parseInt(mm)-1);
+
+        dd = Math.ceil(Math.random() * (daysInMonth[mm-1])); 
+        dd = dd < 9 ? "0" + (parseInt(dd)-1) : (parseInt(dd)-1);
+        set_date() //sets the date with changed values
+        call_api_function()
+      
     }
 
