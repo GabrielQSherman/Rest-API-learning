@@ -48,7 +48,7 @@ function call_api_function() {
 }
 
 function search_function() {
-    today = document.getElementById('dateinput').value;
+    today = document.getElementById('dateinput').value.trim();
     call_api_function()
 }
 

@@ -182,17 +182,16 @@ const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
     
     function feeling_lucky() {
       
-      console.log(1995 + Math.floor(Math.random() * (currentDate.year - 1995)));
-      
-        yyyy = 1995 + Math.floor(Math.random() * (currentDate.year - 1995));
+        yyyy = 1996 + Math.floor(Math.random() * (currentDate.year - 1996));
         
-        mm = Math.ceil(Math.random() * (12));
-        mm = mm < 9 ? "0" + (parseInt(mm)-1) : (parseInt(mm)-1);
+        mm = Math.round((Math.random() * (11))+1);
+        mm = mm < 9 ? "0" + (parseInt(mm)) : (parseInt(mm));
 
         dd = Math.ceil(Math.random() * (daysInMonth[mm-1])); 
-        dd = dd < 9 ? "0" + (parseInt(dd)-1) : (parseInt(dd)-1);
+        dd = dd < 9 ? "0" + (parseInt(dd)) : (parseInt(dd));
         set_date() //sets the date with changed values
         call_api_function()
       
     }
+
 
